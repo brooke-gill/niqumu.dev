@@ -36,6 +36,9 @@ body {
   flex-direction: row;
   margin: 0 auto;
   padding: 20px;
+  height: 100%;
+
+  align-items: center;
 }
 
 .biography {
@@ -93,6 +96,17 @@ body {
 
 .content {
   padding-left: 20px;
+  height: 70vh;
+  overflow: scroll;
+  position: relative;
+}
+
+.project:first-child {
+  margin-top: 30px;
+}
+
+.project:last-child {
+  margin-bottom: 30px;
 }
 
 .content .project {
@@ -101,6 +115,40 @@ body {
   margin-bottom: 20px;
 
   border: 1px solid #303030;
+}
+
+.content .project-image {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+
+  background-image: url("/img/aulavik.png");
+}
+
+.fade {
+  position: relative;
+}
+
+.fade::before,
+.fade::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.fade::before {
+  top: 0;
+  background: linear-gradient(to bottom, #0f0f0f, transparent);
+}
+
+.fade::after {
+  bottom: 0;
+  background: linear-gradient(to top, #0f0f0f, transparent);
 }
 
 .content .project h2 {
@@ -144,8 +192,8 @@ body {
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('../font/InterVariable.woff2');
+  font-family: "Inter";
+  src: url("../font/InterVariable.woff2");
   font-weight: 100 900;
   font-display: swap;
 }
@@ -169,5 +217,10 @@ body {
 
   .links {
     margin-bottom: 30px;
+  }
+
+  .fade::before,
+  .fade::after {
+    display: none;
   }
 }
